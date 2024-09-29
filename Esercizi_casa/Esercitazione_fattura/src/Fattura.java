@@ -1,13 +1,13 @@
 public class Fattura {
     private String nome;
-    private int identificazione;
+    private int identificatore;
     private Prodotto lista[];
     private int i=0;
 
 
-    public Fattura(String nome, int identificazione){
+    public Fattura(String nome, int identificatore){
         this.nome=nome;
-        this.identificazione=identificazione;
+        this.identificatore=identificatore;
         this.lista=new Prodotto[5];
     }
 
@@ -15,9 +15,12 @@ public class Fattura {
         lista[i]=new Prodotto(23,"penna", 3.5F);
     }
     void stampa(){
-        System.out.println("Cliente: "+ nome);
-        System.out.println("Identificativo: "+ identificazione);
+        String str = new String();
+        str = "Cliente ";
+        System.out.println(str.concat(nome));
+        System.out.println("Identificativo: "+ identificatore);
         for(i=0; i<5; i++) lista[i].stampaInfoProdotto();
+        System.out.println("Totale: " + lista[0].stampaSomma());
     }
 
 
